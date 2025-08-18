@@ -3,10 +3,12 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private Rigidbody coin;
+    public GameManager gm;
 
     private void Start()
     {
         coin = GetComponent<Rigidbody>();
+        gm = GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -15,6 +17,7 @@ public class Coin : MonoBehaviour
         {
             var player = other.GetComponent<PlayerController>();
             Destroy(gameObject);
+            gm.SetScore();
         }
 
     }

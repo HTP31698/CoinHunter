@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private float surviveTime;
     private bool isGameOver = false;
 
+    private static int score;
+
     private void Start()
     {
         GameOver.SetActive(false);
@@ -46,6 +48,11 @@ public class GameManager : MonoBehaviour
             bestTime = surviveTime;
             PlayerPrefs.SetFloat("BestTime", bestTime);
         }
-        bestRecordText.text = $"Best Record: {Mathf.FloorToInt(bestTime)}";
+        bestRecordText.text = $"Best Record: {Mathf.FloorToInt(score + bestTime)}";
+    }
+
+    public void SetScore()
+    {
+        score += 10;
     }
 }

@@ -28,6 +28,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
             GameObject go = Instantiate(fallPrefap, spawnPoint, fallPrefap.transform.rotation);
             timer = 0;
             interval = Random.Range(spawnRateMin, spawnRateMax);
+            Destroy(go, 3f);
         }
     }
 }
