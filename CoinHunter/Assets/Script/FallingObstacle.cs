@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class FallingObstacle : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Rigidbody fallob;
+
+    private void Start()
     {
-        
+        fallob = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            var player = other.GetComponent<PlayerController>();
+            player.Die();
+        }
     }
 }

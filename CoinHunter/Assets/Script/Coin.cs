@@ -13,7 +13,6 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("111"); 
             var player = other.GetComponent<PlayerController>();
             Destroy(gameObject);
         }
