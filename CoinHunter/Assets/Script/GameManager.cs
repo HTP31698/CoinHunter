@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     private float surviveTime;
     private bool isGameOver = false;
 
-    private static int score;
+    private int score;
+    private int coin;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
        if(!isGameOver)
         {
             surviveTime += Time.deltaTime;
-            timeText.text = $"Time: {Mathf.FloorToInt(surviveTime)}";
+            timeText.text = $"Time: {Mathf.FloorToInt(surviveTime)} " + $"Score: {Mathf.FloorToInt(surviveTime)+ score} " + $"Coin: {coin}";
         }
        else
         {
@@ -51,8 +52,9 @@ public class GameManager : MonoBehaviour
         bestRecordText.text = $"Best Record: {Mathf.FloorToInt(score + bestTime)}";
     }
 
-    public void SetScore()
+    public void UpScore()
     {
         score += 10;
+        coin += 1;
     }
 }
